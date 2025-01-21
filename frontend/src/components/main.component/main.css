@@ -1,0 +1,5 @@
+main > div {
+    margin: 0 15px;
+    background-color: white;
+    box-shadow: 0 0 15px #0004;
+}

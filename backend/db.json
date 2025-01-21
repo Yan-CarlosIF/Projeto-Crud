@@ -1,0 +1,14 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Yan Carlos Ribeiro de Oliveira",
+      "email": "yan312005@gmail.com"
+    },
+    {
+      "id": "2",
+      "name": "Maria Evânia Ribeiro da Silva",
+      "email": "mevasilva@gmail.com"
+    }
+  ]
+}

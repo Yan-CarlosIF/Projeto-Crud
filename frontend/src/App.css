@@ -1,0 +1,52 @@
+:root {
+  --bg-dark: #07072a;
+  --logo-height: 120px;
+  --header-height: 120px;
+  --aside-width: 225px;
+  --footer-height: 40px;
+  --shadow: 0 2px 23px 0 rgba(0, 0, 0, 0.1), 0 2px 49px 0 rgba(0, 0, 0, 0.06);
+  --shadow-nav: 2px 0 10px 0 rgba(0, 0, 0, 0.12),
+    2px 0 15px 0 rgba(0, 0, 0, 0.09);
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Layout Grid */
+
+.app {
+  margin: 0;
+  display: grid;
+  grid-template-columns: var(--aside-width) 1fr;
+  grid-template-rows: var(--header-height) 1fr var(--footer-height);
+  grid-template-areas: "logo header" "menu content" "menu footer";
+  height: 100vh;
+  background-color: #f5f5f5;
+}
+
+aside.logo {
+  grid-area: logo;
+  overflow: hidden;
+
+  & img {
+    margin: 0 0 10px 18px;
+  }
+}
+
+aside.menu-area {
+  grid-area: menu;
+}
+
+header.header {
+  grid-area: header;
+}
+
+main.content {
+  grid-area: content;
+}
+
+footer.footer {
+  grid-area: footer;
+}
