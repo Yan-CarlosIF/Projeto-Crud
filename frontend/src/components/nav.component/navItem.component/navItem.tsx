@@ -1,7 +1,13 @@
+interface NavItemProps {
+  icon: string;
+  content: string;
+  to: string;
+}
+
 import { Link } from "react-router-dom";
 import "./navItem.css";
 
-function NavItem(props: any) {
+function NavItem(props: NavItemProps) {
   return (
     <Link to={props.to} className="nav-item">
       <i className={`fa fa-${props.icon}`}></i> {props.content}
