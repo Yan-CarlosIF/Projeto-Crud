@@ -11,7 +11,7 @@ Implementar um sistema de gerenciamento de registros em uma interface interativa
 
 - **React**: Biblioteca JavaScript para construção de interfaces de usuário.
 - **TypeScript**: Linguagem principal para o desenvolvimento.
-- **CSS**: Estilização da interface.
+- **CSS e Bootstrap**: Estilização da interface.
 - **JSON Server**: Ferramenta para criar uma API RESTful falsa, útil para testes e protótipos.
 - **React Router**: Para gerenciar rotas dentro da aplicação.
 
