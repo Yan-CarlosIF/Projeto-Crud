@@ -8,7 +8,7 @@ const headerProps = {
   subtitle: "Cadastro de usuários: Incluir, Listar, Alterar e Excluir.",
 };
 
-function userRegister() {
+function UserRegister() {
   const [user, setUser] = useState<State>(initialState);
 
   const updateField = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -161,7 +161,7 @@ function userRegister() {
           </tr>
         </thead>
         <tbody>
-          {user.list.map((user: any) => {
+          {user.list.map((user: User) => {
             return (
               <tr key={user.id}>
                 <td>{user.id}</td>
@@ -171,11 +171,11 @@ function userRegister() {
                   <button
                     className="btn btn-warning fa fa-pencil"
                     style={{ marginRight: "10px" }}
-                    onClick={() => editUser(user.id)}
+                    onClick={() => user.id && editUser(user.id)}
                   ></button>
                   <button
                     className="btn btn-danger fa fa-trash"
-                    onClick={() => deleteUser(user.id)}
+                    onClick={() => user.id && deleteUser(user.id)}
                   ></button>
                 </td>
               </tr>
@@ -193,4 +193,4 @@ function userRegister() {
   );
 }
 
-export default userRegister;
+export default UserRegister;
