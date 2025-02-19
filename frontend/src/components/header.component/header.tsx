@@ -1,10 +1,10 @@
+import "./header.css";
+
 interface HeaderProps {
   icon: string;
   title: string;
   subtitle: string;
 }
-
-import "./header.css";
 
 function Header({ icon = "home", title, subtitle }: HeaderProps) {
   return (

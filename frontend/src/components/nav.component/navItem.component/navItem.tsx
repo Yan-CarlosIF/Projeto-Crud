@@ -1,11 +1,11 @@
+import { Link } from "react-router-dom";
+import "./navItem.css";
+
 interface NavItemProps {
   icon: string;
   content: string;
   to: string;
 }
-
-import { Link } from "react-router-dom";
-import "./navItem.css";
 
 function NavItem(props: NavItemProps) {
   return (

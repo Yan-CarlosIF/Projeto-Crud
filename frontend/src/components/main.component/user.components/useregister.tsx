@@ -1,6 +1,12 @@
-import { baseUrl, initialState, State, User } from "./userdefinitions";
-import { useState } from "react";
+import { baseUrl, initialState, State, User } from "./user.d";
+import { useState, useEffect } from "react";
 import Main from "../main";
+
+async function fetchUsers(): Promise<User[]> {
+  const response = await fetch(baseUrl);
+  const data = await response.json();
+  return data;
+}
 
 const headerProps = {
   icon: "users",
@@ -9,20 +15,26 @@ const headerProps = {
 };
 
 function UserRegister() {
-  const [user, setUser] = useState<State>(initialState);
+  const [users, setUsers] = useState<State>(initialState);
+
+  useEffect(() => {
+    fetchUsers().then((data) =>
+      setUsers((prevState) => ({ ...prevState, list: data }))
+    );
+  }, []);
 
   const updateField = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setUser({
-      ...user,
+    setUsers({
+      ...users,
       user: {
-        ...user.user,
+        ...users.user,
         [e.target.name]: e.target.value,
       },
     });
   };
 
   const clear = () => {
-    setUser((state) => {
+    setUsers((state) => {
       return {
         ...state,
         user: initialState.user,
@@ -31,31 +43,30 @@ function UserRegister() {
   };
 
   const saveUser = () => {
-    if ("id" in user.user) {
-      setUser((state) => {
+    if ("id" in users.user) {
+      setUsers((state) => {
         return {
           ...state,
           list: state.list.map((u: User) =>
-            u.id === user.user.id ? user.user : u),
+            u.id === users.user.id ? users.user : u
+          ),
         };
       });
 
-      fetch(`${baseUrl}/${user.user.id}`, {
+      fetch(`${baseUrl}/${users.user.id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(user.user),
-      })
-        .then((response) => response.json())
-        .then(clear);
+        body: JSON.stringify(users.user),
+      }).then((response) => response.json());
     } else {
-      user.user.id = (user.list.length + 1).toString();
+      users.user.id = users.list.length + 1;
 
-      setUser((state) => {
+      setUsers((state) => {
         return {
           ...state,
-          list: [...state.list, user.user],
+          list: [...state.list, users.user],
         };
       });
 
@@ -64,11 +75,10 @@ function UserRegister() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(user.user),
-      })
-        .then((response) => response.json())
-        .then(clear);
+        body: JSON.stringify(users.user),
+      }).then((response) => response.json());
     }
+    clear();
   };
 
   const renderForm = () => {
@@ -82,7 +92,7 @@ function UserRegister() {
                 type="text"
                 className="form-control"
                 name="name"
-                value={user.user.name}
+                value={users.user.name}
                 onChange={(e) => updateField(e)}
                 placeholder="Digite o nome..."
               />
@@ -96,7 +106,7 @@ function UserRegister() {
                 type="text"
                 className="form-control"
                 name="email"
-                value={user.user.email}
+                value={users.user.email}
                 onChange={(e) => updateField(e)}
                 placeholder="Digite o e-mail..."
               />
@@ -123,28 +133,28 @@ function UserRegister() {
     );
   };
 
-  const deleteUser = (userID: string) => {
+  const deleteUser = (userID: number) => {
     fetch(`${baseUrl}/${userID}`, { method: "DELETE" })
       .then(() => {
-        const updatedList = user.list.filter(
+        const updatedList = users.list.filter(
           (user: User) => user.id !== userID
         );
 
-        setUser({
-          ...user,
+        setUsers({
+          ...users,
           list: updatedList,
         });
       })
       .catch((err) => console.log("Erro ao excluir o usuário", err));
   };
 
-  const editUser = (userID: string) => {
-    const userSelected = user.list.filter(
+  const editUser = (userID: number) => {
+    const userSelected = users.list.filter(
       (user: User) => user.id === userID
     )[0];
 
-    setUser({
-      ...user,
+    setUsers({
+      ...users,
       user: userSelected,
     });
   };
@@ -161,7 +171,7 @@ function UserRegister() {
           </tr>
         </thead>
         <tbody>
-          {user.list.map((user: User) => {
+          {users.list.map((user: User) => {
             return (
               <tr key={user.id}>
                 <td>{user.id}</td>
@@ -185,6 +195,7 @@ function UserRegister() {
       </table>
     );
   };
+  
   return (
     <Main {...headerProps}>
       {renderForm()}

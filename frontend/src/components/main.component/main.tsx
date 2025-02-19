@@ -2,7 +2,14 @@ import "./main.css";
 import React from "react";
 import Header from "../header.component/header";
 
-function Main(props: any) {
+interface HeaderProps {
+  icon: string;
+  title: string;
+  subtitle: string;
+  children?: React.ReactNode;
+}
+
+function Main(props: HeaderProps) {
   return (
     <React.Fragment>
       <Header {...props} />

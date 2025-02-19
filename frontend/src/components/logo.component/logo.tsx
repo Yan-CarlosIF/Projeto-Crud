@@ -1,5 +1,5 @@
 import "./logo.css";
-import LogoYan from "../../assets/imgs/Design sem nome.jpg";
+import LogoYan from "../../assets/Logo.jpg";
 import { Link } from "react-router-dom";
 
 function Logo() {
