@@ -18,9 +18,12 @@ function UserRegister() {
   const [users, setUsers] = useState<State>(initialState);
 
   useEffect(() => {
-    fetchUsers().then((data) =>
-      setUsers((prevState) => ({ ...prevState, list: data }))
-    );
+    fetchUsers().then((data: User[]) => {
+      data = data.sort((a: User, b: User) =>
+        (a.id ?? 0) > (b.id ?? 0) ? 1 : -1
+      );
+      setUsers((prevState) => ({ ...prevState, list: data }));
+    });
   }, []);
 
   const updateField = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -79,6 +82,15 @@ function UserRegister() {
       }).then((response) => response.json());
     }
     clear();
+    setUsers((state: State) => {
+      state.list.sort((a: User, b: User) =>
+        (a.id ?? 0) > (b.id ?? 0) ? 1 : -1
+      );
+      return {
+        ...state,
+        user: initialState.user,
+      };
+    });
   };
 
   const renderForm = () => {
@@ -195,7 +207,7 @@ function UserRegister() {
       </table>
     );
   };
-  
+
   return (
     <Main {...headerProps}>
       {renderForm()}
