@@ -56,7 +56,7 @@ Implementar um sistema de gerenciamento de registros em uma interface interativa
 ## 🧩 Estrutura do Projeto
 
 - **Projeto-Crud/**: Diretório raiz do projeto.
-  - **backend/**: Contém a configuração do JSON Server.
+  - **backend/**: Contém a configuração da API.
     - **database.ts**: O arquivo de configuração do banco de dados.
     - **server.ts**: O arquivo de configuração da API.
   - **frontend/**: Contém o código do frontend
