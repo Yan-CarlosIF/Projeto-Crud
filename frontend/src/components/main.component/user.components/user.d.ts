@@ -1,4 +1,4 @@
-export const baseUrl = "http://localhost:3001/users";
+export const baseUrl = "https://api-crud-h0ja.onrender.com";
 
 export interface User {
   id?: number;
