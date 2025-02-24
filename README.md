@@ -41,7 +41,7 @@ Implementar um sistema de gerenciamento de registros em uma interface interativa
    Para rodar a API e permitir que o projeto faça requisições, execute o seguinte comando:
 
    ```bash
-   npx ts-node src/server.ts
+   npm start
    ```
 
    A API estará disponível em [http://localhost:3001/users](http://localhost:3001/users).
