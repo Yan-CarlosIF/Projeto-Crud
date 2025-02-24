@@ -37,14 +37,13 @@ Implementar um sistema de gerenciamento de registros em uma interface interativa
    npm install
    ```
 
-3. **Rodar o Server**
-   Para rodar a API e permitir que o projeto faça requisições, execute o seguinte comando:
+3. **API**
+   API desenvolvida em **Node.js** com **Express** está disponível em: [Link da API](https://api-crud-h0ja.onrender.com/)
 
+   se desejar rodar localmente, execute na pasta backend:
    ```bash
    npm start
    ```
-
-   A API estará disponível em [http://localhost:3001/users](http://localhost:3001/users).
 
 4. **Executar o projeto React**
    Inicie o servidor de desenvolvimento do React:
