@@ -1,11 +1,12 @@
+import "dotenv/config";
 import { Pool } from "pg";
 
 const pool = new Pool({
-  host: "localhost",
-  port: 5432,
-  user: "postgres",
-  password: "yandev",
-  database: "Crud_Usuarios",
+  connectionString: process.env.DB_URL,
+  ssl: {
+    rejectUnauthorized: false,
+  },
 });
 
-export const query = (text: string, params?: any[]) => pool.query(text, params);
+export const query = (text: string, params?: any[]): Promise<any> =>
+  pool.query(text, params);
