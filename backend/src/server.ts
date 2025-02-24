@@ -8,7 +8,7 @@ app.use(cors());
 
 const PORT = 3001;
 
-app.get("/users", async (req: any, res: any) => {
+app.get("/", async (req: any, res: any) => {
   try {
     const result = await query("SELECT * FROM public.users");
     res.json(result.rows);
@@ -17,7 +17,7 @@ app.get("/users", async (req: any, res: any) => {
   }
 });
 
-app.get("/users/:id", async (req: any, res: any) => {
+app.get("/:id", async (req: any, res: any) => {
   try {
     const result = await query("SELECT * FROM public.users WHERE id = $1", [
       req.params.id,
@@ -28,7 +28,7 @@ app.get("/users/:id", async (req: any, res: any) => {
   }
 });
 
-app.post("/users", async (req: any, res: any) => {
+app.post("/", async (req: any, res: any) => {
   try {
     const { id, name, email } = req.body;
 
@@ -47,7 +47,7 @@ app.post("/users", async (req: any, res: any) => {
   }
 });
 
-app.put("/users/:id", async (req: any, res: any) => {
+app.put("/:id", async (req: any, res: any) => {
   try {
     const { id } = req.params;
     const { name, email } = req.body;
@@ -67,7 +67,7 @@ app.put("/users/:id", async (req: any, res: any) => {
   }
 });
 
-app.delete("/users/:id", async (req: any, res: any) => {
+app.delete("/:id", async (req: any, res: any) => {
   try {
     const { id } = req.params;
     const result = await query("DELETE FROM public.users WHERE id = $1", [id]);
