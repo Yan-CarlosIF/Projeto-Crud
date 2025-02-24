@@ -1,6 +1,6 @@
 # Projeto CRUD
 
-Este repositório contém um projeto de CRUD (Create, Read, Update, Delete) desenvolvido com **React** e **TypeScript**, com o objetivo de demonstrar operações básicas de manipulação de dados. O projeto utiliza **PostgreSQL** como banco de dados com uma API desenvolvida em **Node.js** e **React Router** para gerenciamento de rotas.
+Este repositório contém um projeto de CRUD (Create, Read, Update, Delete) desenvolvido com **React** e **TypeScript**, com o objetivo de demonstrar operações básicas de manipulação de dados. O projeto utiliza **NeonDB** como banco de dados **PostgreSQL**, e uma API desenvolvida em **Node.js** utilizando **Express** para gerenciamento de usuários e **React Router** para gerenciamento de rotas.
 
 ## 🎯 Objetivo do Projeto
 
@@ -11,7 +11,7 @@ Implementar um sistema de gerenciamento de registros em uma interface interativa
 - **React**: Biblioteca JavaScript para construção de interfaces de usuário.
 - **TypeScript**: Linguagem principal para o desenvolvimento.
 - **CSS e Bootstrap**: Estilização da interface.
-- **PostgreSQL**: Banco de dados para armazenar dados dos usuários.
+- **NeonDB**: Banco de dados PostgreSQL para armazenamento de dados.
 - **React Router**: Para gerenciar rotas dentro da aplicação.
 
 ## ⚙️ Funcionalidades
@@ -44,7 +44,7 @@ Implementar um sistema de gerenciamento de registros em uma interface interativa
    npx ts-node src/server.ts
    ```
 
-   A API estará disponível em [http://localhost:3000/users](http://localhost:3000/users).
+   A API estará disponível em [http://localhost:3001/users](http://localhost:3001/users).
 
 4. **Executar o projeto React**
    Inicie o servidor de desenvolvimento do React:
