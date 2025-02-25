@@ -1,4 +1,4 @@
-# Projeto CRUD
+# [Projeto CRUD](https://sistema-crud-khaki.vercel.app/)
 
 Este repositório contém um projeto de CRUD (Create, Read, Update, Delete) desenvolvido com **React** e **TypeScript**, com o objetivo de demonstrar operações básicas de manipulação de dados. O projeto utiliza **NeonDB** como banco de dados **PostgreSQL**, e uma API desenvolvida em **Node.js** utilizando **Express** para gerenciamento de usuários e **React Router** para gerenciamento de rotas.
 
@@ -22,7 +22,9 @@ Implementar um sistema de gerenciamento de registros em uma interface interativa
 - **Excluir registros**: Remover usuários do sistema.
 
 ## 🚀 Como Executar o Projeto
-
+### Link do projeto: [Link](https://sistema-crud-khaki.vercel.app/)
+### ou
+### Se desejar rodar localmente:
 1. **Clonar o repositório**
 
    ```bash
@@ -37,8 +39,7 @@ Implementar um sistema de gerenciamento de registros em uma interface interativa
    npm install
    ```
 
-3. **API**
-   API desenvolvida em **Node.js** com **Express** está disponível em: [Link da API](https://api-crud-h0ja.onrender.com/)
+3. **API** desenvolvida em **Node.js** com **Express** está disponível em: [Link da API](https://api-crud-h0ja.onrender.com/)
 
    se desejar rodar localmente, execute na pasta backend:
    ```bash
@@ -55,12 +56,12 @@ Implementar um sistema de gerenciamento de registros em uma interface interativa
 ## 🧩 Estrutura do Projeto
 
 - **Projeto-Crud/**: Diretório raiz do projeto.
-  - **backend/**: Contém a configuração da API.
+  - **backend/src**: Contém a configuração da API.
     - **database.ts**: O arquivo de configuração do banco de dados.
     - **server.ts**: O arquivo de configuração da API.
   - **frontend/**: Contém o código do frontend
     - **src/**: Código-fonte da aplicação.
-    - **components/**: Componentes reutilizáveis da aplicação.
+      - **components/**: Componentes reutilizáveis da aplicação.
 
 ## 📋 Pré-requisitos
 
