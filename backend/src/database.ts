@@ -10,14 +10,6 @@ const pool = new Pool({
   },
 });
 
-// Tentativa de conexão
-pool
-  .connect()
-  .then(() => console.log("🔥 Banco de dados conectado com sucesso!"))
-  .catch((err) =>
-    console.error("❌ Erro ao conectar ao banco de dados:", err.message)
-  );
-
 // Função para executar consultas
 export const query = (text: string, params?: any[]): Promise<any> =>
   pool.query(text, params);
