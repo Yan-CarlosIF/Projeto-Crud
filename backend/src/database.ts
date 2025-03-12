@@ -1,8 +1,6 @@
 import "dotenv/config";
 import { Pool } from "pg";
 
-console.log(process.env.DB_URL);
-
 const pool = new Pool({
   connectionString: process.env.DB_URL, // Usando a string de conexão completa do NeonDB
   ssl: {

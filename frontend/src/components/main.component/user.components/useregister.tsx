@@ -18,10 +18,7 @@ function UserRegister() {
   const [users, setUsers] = useState<State>(initialState);
 
   useEffect(() => {
-    fetchUsers().then((data: User[]) => {
-      data = data.sort((a: User, b: User) =>
-        (a.id ?? 0) > (b.id ?? 0) ? 1 : -1
-      );
+    fetchUsers().then((data) => {
       setUsers((prevState) => ({ ...prevState, list: data }));
     });
   }, []);
@@ -83,9 +80,6 @@ function UserRegister() {
     }
     clear();
     setUsers((state: State) => {
-      state.list.sort((a: User, b: User) =>
-        (a.id ?? 0) > (b.id ?? 0) ? 1 : -1
-      );
       return {
         ...state,
         user: initialState.user,

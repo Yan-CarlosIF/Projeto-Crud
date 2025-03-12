@@ -10,7 +10,7 @@ const PORT = 3001;
 
 app.get("/", async (req: any, res: any) => {
   try {
-    const result = await query("SELECT * FROM public.users");
+    const result = await query("SELECT * FROM public.users ORDER BY id ASC");
     res.json(result.rows);
   } catch {
     res.status(500).json({ error: "Internal server error" });
@@ -82,4 +82,4 @@ app.delete("/:id", async (req: any, res: any) => {
   }
 });
 
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => console.log(`http://localhost:${PORT}`));
