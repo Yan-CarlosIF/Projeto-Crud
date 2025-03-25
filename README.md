@@ -13,6 +13,9 @@ Implementar um sistema de gerenciamento de registros em uma interface interativa
 - **CSS e Bootstrap**: Estilização da interface.
 - **NeonDB**: Banco de dados PostgreSQL para armazenamento de dados.
 - **React Router**: Para gerenciar rotas dentro da aplicação.
+- **React Query**: Para gerenciar estado e solicitações assíncronas.
+- **Node.js**: Ambiente de desenvolvimento para a API.
+- **Express**: Framework para desenvolvimento de APIs em Node.js.
 
 ## ⚙️ Funcionalidades
 
@@ -22,9 +25,13 @@ Implementar um sistema de gerenciamento de registros em uma interface interativa
 - **Excluir registros**: Remover usuários do sistema.
 
 ## 🚀 Como Executar o Projeto
+
 ### Link do projeto: [Link](https://sistema-crud-khaki.vercel.app/)
+
 ### ou
+
 ### Se desejar rodar localmente:
+
 1. **Clonar o repositório**
 
    ```bash
@@ -42,6 +49,7 @@ Implementar um sistema de gerenciamento de registros em uma interface interativa
 3. **API** desenvolvida em **Node.js** com **Express** está disponível em: [Link da API](https://api-crud-h0ja.onrender.com/)
 
    se desejar rodar localmente, execute na pasta backend:
+
    ```bash
    npm start
    ```
@@ -61,7 +69,9 @@ Implementar um sistema de gerenciamento de registros em uma interface interativa
     - **server.ts**: O arquivo de configuração da API.
   - **frontend/**: Contém o código do frontend
     - **src/**: Código-fonte da aplicação.
+      - **api**: Funções para comunicação com a API.
       - **components/**: Componentes reutilizáveis da aplicação.
+      - **pages/**: Páginas da aplicação.
 
 ## 📋 Pré-requisitos
 
