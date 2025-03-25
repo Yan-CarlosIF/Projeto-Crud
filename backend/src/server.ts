@@ -37,7 +37,13 @@ app.post("/", async (req: any, res: any) => {
     }
 
     const result = await query(
-      "INSERT INTO public.users (name, email) VALUES ($1, $2) RETURNING *",
+      `INSERT INTO public.users (id, name, email)
+       VALUES (
+         (SELECT COALESCE(MAX(id), 0) + 1 FROM public.users),
+         $1,
+         $2
+       )
+       RETURNING *`,
       [name, email]
     );
 
