@@ -30,15 +30,15 @@ app.get("/:id", async (req: any, res: any) => {
 
 app.post("/", async (req: any, res: any) => {
   try {
-    const { id, name, email } = req.body;
+    const { name, email } = req.body;
 
     if (!name || !email) {
       return res.status(400).json({ error: "Missing name or email" });
     }
 
     const result = await query(
-      "INSERT INTO public.users (id, name, email) VALUES ($1, $2, $3) RETURNING *",
-      [id, name, email]
+      "INSERT INTO public.users (name, email) VALUES ($1, $2) RETURNING *",
+      [name, email]
     );
 
     res.status(201).json(result.rows[0]);

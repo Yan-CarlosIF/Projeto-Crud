@@ -1,5 +1,11 @@
 import "dotenv/config";
-import { Pool } from "pg";
+import { Pool, QueryResult } from "pg";
+
+interface User {
+  id: number;
+  name: string;
+  email: string;
+}
 
 const pool = new Pool({
   connectionString: process.env.DB_URL, // Usando a string de conexão completa do NeonDB
@@ -9,5 +15,7 @@ const pool = new Pool({
 });
 
 // Função para executar consultas
-export const query = (text: string, params?: any[]): Promise<any> =>
-  pool.query(text, params);
+export const query = (
+  text: string,
+  params?: [number?, string?, string?]
+): Promise<QueryResult<User>> => pool.query<User>(text, params);
