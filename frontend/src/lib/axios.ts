@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: "https://api-crud-h0ja.onrender.com",
+  baseURL: "https://crud-api-bay.vercel.app",
   headers: {
     "Content-Type": "application/json",
   },
